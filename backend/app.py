@@ -7,8 +7,8 @@ app = Flask(__name__)
 CORS(app)  # Agar bisa diakses dari frontend
 
 # Load model
-clf = joblib.load('model_classifier.pkl')
-reg = joblib.load('model_regressor.pkl')
+clf = joblib.load('backend/model_classifier.pkl')
+reg = joblib.load('backend/model_regressor.pkl')
 
 # Rute home
 @app.route("/")
