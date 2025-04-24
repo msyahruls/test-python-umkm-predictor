@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Pendanaan UMKM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-700">UMKM Funding Predictor</h1>
+
+        <form id="predictForm" class="space-y-4">
+            <div>
+                <label class="block mb-1 text-sm font-medium">Total Aset (Juta):</label>
+                <input type="number" min="0" step="any" name="aset" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Penjualan Rata-rata Per Tahun (Juta):</label>
+                <input type="number" min="0" step="any" name="penjualan" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Jumlah Tenaga Kerja:</label>
+                <input type="number" min="0" name="karyawan" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Proyeksi Pertumbuhan (%/tahun):</label>
+                <input type="number" step="any" name="pertumbuhan" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Kebutuhan Biaya Kredit (Juta):</label>
+                <input type="number" step="any" name="kredit" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Nilai Aset Jaminan Kredit (Juta):</label>
+                <input type="number" step="any" name="jaminan" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm font-medium">Jumlah Dokumen Kredit:</label>
+                <input type="number" min="0" name="dokumen" required class="w-full p-2 border rounded text-sm">
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200 text-sm">Prediksi</button>
+        </form>
+
+        <div id="hasil" class="mt-6 text-lg font-semibold text-center break-words"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('predictForm');
+        const hasilDiv = document.getElementById('hasil');
+
+        form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+
+            hasilDiv.innerHTML = `<p class="text-gray-500">⏳ Memproses prediksi...</p>`;
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('http://localhost:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.error) {
+                    hasilDiv.innerHTML = `<p class="text-red-600">⚠️ Error: ${result.error}</p>`;
+                } else {
+                    hasilDiv.innerHTML = `
+            <p class="text-green-600">✅ Kelayakan: <strong>${result.kelayakan}</strong></p>
+            <p class="text-blue-600">💰 Estimasi Pendanaan: <strong>Rp ${(Math.round(result.estimasi_pendanaan) * 1_000_000).toLocaleString('id-ID')}</strong></p>
+          `;
+                }
+            } catch (err) {
+                hasilDiv.innerHTML = `<p class="text-red-600">⚠️ Gagal menghubungi server: ${err.message}</p>`;
+            }
+        });
+    </script>
+</body>
+
+</html>

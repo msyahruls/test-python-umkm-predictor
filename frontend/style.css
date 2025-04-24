@@ -1,0 +1,400 @@
+/* BAGIAN DASAR */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f7faff;
+    color: #2563EB;
+}
+
+
+/* HEADER */
+
+.bevest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #87CEFA, #1E90FF);
+    padding: 1rem 2rem;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #fffae6;
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+}
+
+
+/* HERO */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #E6F0FF, #B0D8FF);
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #2563EB;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2563EB;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #69727C;
+}
+
+.hero-img img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+
+/* TOMBOL UTAMA */
+
+.btn-utama {
+    background-color: #1E90FF;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-utama:hover {
+    background-color: #1C86EE;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(30, 144, 255, 0.2);
+}
+
+.cta .btn-utama {
+    background-color: white;
+    color: #1E90FF;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.cta .btn-utama:hover {
+    background-color: #f0f8ff;
+    color: #1873CC;
+    transform: scale(1.05);
+}
+
+
+/* TENTANG */
+
+.tentang {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #ffffff;
+    color: #2563EB;
+}
+
+.tentang h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2563EB;
+}
+
+.tentang p {
+    font-size: 1rem;
+    color: #69727C;
+}
+
+
+/* UMKM TERDANAI */
+
+.umkm-terdanai {
+    padding: 3rem 2rem;
+    background-color: #f0f8ff;
+    color: #2563EB;
+}
+
+.umkm-terdanai h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #2563EB;
+}
+
+.umkm-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.umkm-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #2563EB;
+    text-align: center;
+    position: relative;
+}
+
+.umkm-card img.card-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.umkm-card img.profile-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #1E90FF;
+}
+
+.umkm-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    background-color: #f7fbff;
+}
+
+.umkm-card h3 {
+    color: #1873CC;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.umkm-card p {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #69727C;
+    margin: 0.4rem 0;
+}
+
+.umkm-card i {
+    color: #1E90FF;
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+
+/* Tambahan untuk card UMKM yang sedang berjalan */
+
+.umkm-card.sedang-berjalan {
+    border: 2px solid #4CAF50;
+    /* Menambahkan border berwarna hijau untuk membedakan card yang sedang berjalan */
+}
+
+.progress-bar-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 10px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+
+/* Status Berjalan */
+
+.status-berjalan {
+    font-size: 0.85rem;
+    color: #4CAF50;
+    /* Warna hijau untuk status berjalan */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.status-berjalan i {
+    font-style: normal;
+    /* Mengembalikan style italic default untuk ikon */
+}
+
+
+/* Tambahan untuk gambar utama UMKM */
+
+.umkm-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Label kategori */
+
+.kategori-label {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    /* Font lebih kecil */
+    font-weight: 600;
+    border-radius: 9999px;
+    background-color: #2563EB;
+    /* Background biru */
+    color: white;
+    /* Teks putih */
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    /* Ubah teks menjadi huruf kapital */
+}
+
+
+/* Warna per kategori */
+
+.kategori-kuliner {
+    background-color: #2563EB;
+    /* Warna background biru */
+    color: white;
+    /* Warna teks putih */
+}
+
+.kategori-fashion {
+    background-color: #2563EB;
+    /* Warna background biru */
+    color: white;
+    /* Warna teks putih */
+}
+
+.kategori-kerajinan {
+    background-color: #2563EB;
+    /* Warna background biru */
+    color: white;
+    /* Warna teks putih */
+}
+
+
+/* Status Tutup */
+
+.status-tutup {
+    font-size: 0.85rem;
+    color: #DC2626;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.status-tutup i {
+    font-style: normal;
+}
+
+
+/* CTA AKHIR */
+
+.cta {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #1E90FF;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+
+/* FOOTER */
+
+.footer {
+    padding: 1rem 2rem;
+    text-align: center;
+    background: linear-gradient(to right, #87CEFA, #1E90FF);
+    color: white;
+}
+
+
+/* RESPONSIF */
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .umkm-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo-title h1 {
+        font-size: 1.2rem;
+    }
+    .umkm-card {
+        width: 90%;
+    }
+}
